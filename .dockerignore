@@ -1,0 +1,16 @@
+node_modules
+.next
+.git
+.env
+.env.*
+!.env.example
+Dockerfile
+.dockerignore
+.agents
+.claude
+.hermes
+.pi
+.memsearch
+skills
+skills-lock.json
+opencode.json
