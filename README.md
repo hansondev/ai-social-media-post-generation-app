@@ -1,27 +1,15 @@
-# 📱 Social Post AI — Open-Source AI Social Media Post Generator SaaS (Free Buffer AI / Jasper Social Alternative)
+# 📱 Social Post AI — Open-Source AI Social Media Post Generator App (Free Buffer AI / Jasper Social Alternative)
 
 > **Generate platform-native social media posts for LinkedIn, Twitter/X, Instagram, Facebook, Reddit, and LINE in seconds.** A production-ready, self-hostable Next.js SaaS boilerplate with live platform mockups, multi-tone generation, publish intents, and built-in Stripe billing. A free open-source alternative to Buffer AI, Jasper Social, Hootsuite OwlyWriter, Publer, and Copy.ai — powered by the MuAPI AI engine.
 
-**Tech stack:** Next.js 14 (App Router) · Prisma · PostgreSQL · NextAuth (Google OAuth) · Stripe · Tailwind CSS · MuAPI any-llm
+**Tech stack:** Next.js 16 (App Router) · Prisma · PostgreSQL · NextAuth (Google OAuth) · Stripe · Tailwind CSS · MuAPI any-llm
 **Use cases:** Social media managers · Content creators · Marketing agencies · Influencers · Brand managers · Startup growth teams · E-commerce stores · Newsletter writers
-
-<p align="center">
-  <a href="https://github.com/Anil-matcha/awesome-generative-ai-apps">
-    <img src="https://img.shields.io/badge/Part%20of-Awesome%20Generative%20AI%20Apps-FFD700?style=for-the-badge&logo=github&logoColor=black" alt="Awesome Generative AI Apps">
-  </a>
-</p>
-
-> 🎨 **[Explore 50+ more open-source AI apps →](https://github.com/Anil-matcha/awesome-generative-ai-apps)**
-
-## 🌐 Try the Live Engine
-
-**Hosted Demo:** [social-post-woad.vercel.app](https://social-post-woad.vercel.app/)
 
 Experience the full glassmorphic, responsive interface. Sign in with Google to explore the Studio, customize dropdowns (Language, Character Length, and Tones), and preview mock social feeds directly from your browser.
 
 ---
 
-AI Social Post Generator is not just another wrapper — it's a production-ready, highly-optimized AI web application. Out of the box, it seamlessly manages User Authentication, Credits & Billing, Creations Persistence, and asynchronous AI generation polling using a sleek Next.js (App Router) architecture. It empowers you to build professional-grade AI workflows with built-in mobile optimization, making it the perfect starting point for your next AI SaaS.
+AI Social Post Generator is not just another wrapper — it's a production-ready, highly-optimized AI web application. Out of the box, it seamlessly manages User Authentication, Credits &amp; Billing, Creations Persistence, and asynchronous AI generation polling using a sleek Next.js (App Router) architecture. It empowers you to build professional-grade AI workflows with built-in mobile optimization, making it the perfect starting point for your next AI SaaS.
 
 **Why use AI Social Post Generator?**
 
@@ -45,37 +33,35 @@ AI Social Post Generator is not just another wrapper — it's a production-ready
   - **LINE**: Broadcasting chat bubble framework with official brand icons and chat timestamps.
 - **Publishing Intent Gateway** — Segmented choice for **Manual Copy** (to clipboard) vs. **Direct Publish** (launches mock OAuth connection stepper steps and pre-populates X/LINE/Reddit compose editors).
 - **History Archive** — A persistent gallery with complete modal detail views, copies, and updates.
-- **Credit Tiers & Billing** — Complete Stripe integration. Deduct **4 credits** ($0.02) per generated post and route users to price tier panels (Basic, Standard, Pro, Business) to buy bundles.
+- **Credit Tiers &amp; Billing** — Complete Stripe integration. Deduct **4 credits** ($0.02) per generated post and route users to price tier panels (Basic, Standard, Pro, Business) to buy bundles.
 
 ---
 
-## ⚡ Deployment: Vercel & Production
+## ⚡ Deployment: Vercel &amp; Production
 
 Deploying an instance of AI Social Post Generator to the web requires minimal configuration. The architecture is engineered explicitly for **Vercel** serverless environments.
 
-### One-Click Deploy
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/SamurAIGPT/social-post)
-
-> **Pro Tip:** Fork this repository, replace `YOUR_GITHUB_USER` in the link above, to streamline deployments for your private forks.
+> **Pro Tip:** Fork this repository and deploy your own instance to streamline releases for your private forks.
 
 ### 🔑 Required Environment Variables
 
 To successfully deploy and run, you must populate the following environment variables in your Vercel project settings:
 
-| Service               | Variable                             | Description & Source                                                                         |
-| :-------------------- | :----------------------------------- | :------------------------------------------------------------------------------------------- |
-| **Database**          | `DATABASE_URL`                       | PostgreSQL connection string ([Supabase](https://supabase.com) shared pool with pgbouncer)  |
-|                       | `DIRECT_URL`                         | Direct DB connection for Prisma migrations and pushes                                        |
-| **NextAuth / Google** | `NEXTAUTH_SECRET`                    | Secure random string generated via `openssl rand -base64 32`                                 |
-|                       | `NEXTAUTH_URL`                       | Your production domain (e.g. `https://social-post-woad.vercel.app`)                          |
-|                       | `GOOGLE_CLIENT_ID`                   | Get from [Google Cloud Console](https://console.cloud.google.com/apis/credentials)           |
-|                       | `GOOGLE_CLIENT_SECRET`               | Get from [Google Cloud Console](https://console.cloud.google.com/apis/credentials)           |
-| **Stripe Billing**    | `STRIPE_SECRET_KEY`                  | Get from [Stripe Dashboard](https://dashboard.stripe.com/apikeys)                            |
-|                       | `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Get from [Stripe Dashboard](https://dashboard.stripe.com/apikeys)                            |
-|                       | `STRIPE_WEBHOOK_SECRET`              | Webhook secret for resolving credit purchases                                                |
-| **AI Generator**      | `MU_API_KEY`                         | Create an account and get key from [muapi.ai/access-keys](https://muapi.ai/access-keys)      |
-|                       | `WEBHOOK_URL`                        | Callback URL for receiving slow-running generation events                                    |
+
+| Service               | Variable                             | Description &amp; Source                                                                   |
+| :--------------------- | :------------------------------------ | :------------------------------------------------------------------------------------------ |
+| **Database**          | `DATABASE_URL`                       | PostgreSQL connection string ([Supabase](https://supabase.com) shared pool with pgbouncer) |
+|                       | `DIRECT_URL`                         | Direct DB connection for Prisma migrations and pushes                                      |
+| **NextAuth / Google** | `NEXTAUTH_SECRET`                    | Secure random string generated via `openssl rand -base64 32`                               |
+|                       | `NEXTAUTH_URL`                       | Your production domain (e.g. `https://social-post-woad.vercel.app`)                        |
+|                       | `GOOGLE_CLIENT_ID`                   | Get from [Google Cloud Console](https://console.cloud.google.com/apis/credentials)         |
+|                       | `GOOGLE_CLIENT_SECRET`               | Get from [Google Cloud Console](https://console.cloud.google.com/apis/credentials)         |
+| **Stripe Billing**    | `STRIPE_SECRET_KEY`                  | Get from [Stripe Dashboard](https://dashboard.stripe.com/apikeys)                          |
+|                       | `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Get from [Stripe Dashboard](https://dashboard.stripe.com/apikeys)                          |
+|                       | `STRIPE_WEBHOOK_SECRET`              | Webhook secret for resolving credit purchases                                              |
+| **AI Generator**      | `MU_API_KEY`                         | Create an account and get key from [muapi.ai/access-keys](https://muapi.ai/access-keys)    |
+|                       | `WEBHOOK_URL`                        | Callback URL for receiving slow-running generation events                                  |
+
 
 ### 🚀 Launching on Vercel: Step-by-Step
 
@@ -83,7 +69,7 @@ To successfully deploy and run, you must populate the following environment vari
 2. **Project Creation**: Import your GitHub fork into the Vercel dashboard.
 3. **Configure Environment Variables**: Copy the variables above into the Vercel project settings environment tab.
 4. **Deploy**: Hit "Deploy". Vercel will automatically run the build steps (`npm run build`).
-5. **Database Push**: Since Prisma does not automatically migrate via Vercel builds by default, you may want to append `npx prisma db push && ` to your Vercel build command, or manually run it locally pointing to your production database URL.
+5. **Database Push**: Since Prisma does not automatically migrate via Vercel builds by default, you may want to append `npx prisma db push &&`  to your Vercel build command, or manually run it locally pointing to your production database URL.
 6. **Integrations Setup**:
    - Establish a **Google Cloud OAuth app**, enabling the callback URL: `https://social-post-woad.vercel.app/api/auth/callback/google`
    - Setup a **Stripe Webhook**, pointing to `https://social-post-woad.vercel.app/api/stripe/webhook` and selecting the `checkout.session.completed` event to grab your webhook signing secret.
@@ -157,7 +143,7 @@ social-post/
 │   │   ├── globals.css         # Styling system theme and gradients
 │   │   └── page.js             # Main Studio generation and social preview interface
 │   ├── components/
-│   │   └── Navbar.jsx          # Collapsible responsive navigation component
+│   │   └── Navbar.js           # Collapsible responsive navigation component
 │   └── lib/
 │       ├── prisma.js           # Shared ORM client singleton
 │       ├── auth.js             # Google OAuth callback options
@@ -167,7 +153,7 @@ social-post/
 │           ├── billing.js      # Stripe construction services
 │           └── ai.js           # MuAPI predictions submissions and fallback mocks
 ├── next.config.mjs             # Next Configuration
-├── tailwind.config.js          # Project theme specs
+├── postcss.config.mjs          # Tailwind v4 PostCSS plugin
 └── package.json
 ```
 
@@ -177,4 +163,4 @@ MIT Licensed.
 
 ---
 
-_AI Social Post Generator: A modular, mobile-ready, production-grade AI web application engine built for creators and builders._
+*AI Social Post Generator App: A modular, mobile-ready, production-grade AI web application engine built for creators and builders.*
