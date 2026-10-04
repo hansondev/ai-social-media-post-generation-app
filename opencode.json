@@ -1,0 +1,32 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"],
+      "enabled": true,
+	    "timeout": 70000
+    },
+    "coolify": {
+      "type": "local",
+      "command": ["cmd", "/c", "npx", "-y", "@masonator/coolify-mcp"],
+      "environment": {
+        "COOLIFY_BASE_URL": "https://coolify.hansondev.me",
+        "COOLIFY_ACCESS_TOKEN": "{env:COOLIFY_ACCESS_TOKEN}"
+      },
+      "enabled": true,
+      "timeout": 70000
+    },
+    "web-search": {
+      "type": "local",
+      "enabled": true,
+      "command": ["cmd", "/c", "npx", "-y", "open-websearch@latest"],
+      "environment": {
+        "MODE": "stdio",
+        "DEFAULT_SEARCH_ENGINE": "duckduckgo",
+        "SYSTEMROOT": "C:/Windows"
+      },
+      "timeout": 90000
+    }
+  }
+}
