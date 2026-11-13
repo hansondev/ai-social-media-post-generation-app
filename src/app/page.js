@@ -136,6 +136,8 @@ export default function WorkspacePage() {
   
   const pollingRef = useRef(null);
   const creditCost = 4;
+  const hasCustomApiKey = Boolean(session?.user?.customApiKey);
+  const generationCost = hasCustomApiKey ? 0 : creditCost;
 
   // Fetch recent creations
   const fetchCreations = useCallback(async () => {
@@ -286,7 +288,7 @@ export default function WorkspacePage() {
   };
 
   const currentParsed = getParsedText(currentCreation);
-  const canGenerate = topic && topic.trim() !== "" && !generating && (session?.user?.credits ?? 0) >= creditCost;  // Render platform specific preview mock card
+  const canGenerate = Boolean(topic && topic.trim() !== "" && !generating && (hasCustomApiKey || (session?.user?.credits ?? 0) >= creditCost));
   const renderPreviewMock = () => {
     if (!currentCreation || currentCreation.status === "processing") {
       // Shimmer Skeleton
@@ -975,13 +977,13 @@ export default function WorkspacePage() {
                       <span>Your balance</span>
                     </div>
                     <div className="flex items-center justify-between text-xs font-bold mb-3">
-                      <span className="text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2.5 py-1 rounded-lg">⚡ {creditCost} credits</span>
+                      <span className="text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2.5 py-1 rounded-lg">⚡ {generationCost} credits</span>
                       <span className={`px-2.5 py-1 rounded-lg border ${
-                        (session.user.credits ?? 0) >= creditCost 
+                        hasCustomApiKey || (session.user.credits ?? 0) >= creditCost 
                           ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" 
                           : "text-rose-400 bg-rose-500/10 border-rose-500/20 animate-pulse"
                       }`}>
-                        {session.user.credits ?? 0} credits
+                        {hasCustomApiKey ? "∞ (API Key)" : `${session.user.credits ?? 0} credits`}
                       </span>
                     </div>
 
